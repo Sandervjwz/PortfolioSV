@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Schaar steen papier</title>
+
+   <link rel="stylesheet" href="./RPS.css">
+</head>
+<body>
+   <div id="array">
+      <input type="text" name="voegtoe" id="voegtoe">
+      <div id="buttons">
+      <button type="submit" id="vooraanPlus">+ vooraan</button>
+      <button id="vooraanMin">- vooraan</button>
+      <button type="submit" id="achteraanPlus">+ achteraan</button>
+      <button id="achteraanMin">- achteraan</button>
+      <button id="reverse">reverse</button>
+      <button id="alfabetisch">alfabetisch</button>
+      </div>
+      <div id="msg"></div>
+   </div>
+   
+   <div id="RPS">
+      <h2>Schaar, steen, papier</h2>
+      <div id="score_HTML" class="score"></div>
+      <div id="einde">
+         <div id="output_text"></div>
+         <div id="dezeronde" class="score"></div>
+         <div id="winnaar"></div>
+         <div class="fotos">
+            <img src="./img/schaar.png" alt="schaar.png" id="schaar">
+            <img src="./img/steen.png" alt="steen.png" id="steen">
+            <img src="./img/papier.png" alt="papier.png" id="papier">
+         </div>
+      </div>
+   </div>
+   
+   <script src="./RPS.js"></script>
+</body>
+</html>

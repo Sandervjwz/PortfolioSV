@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+   *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+   }
+
+   body{
+      cursor: url(http://www.rw-designer.com/cursor-extern.php?id=116484), auto;
+   }
+
+   #score{
+      padding: 15px;
+      text-align: center;
+      font-size: 25px;
+   }
+   
+   #container{
+      width: 60em;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+   }
+   
+   .hole, .mole{
+      background-color: hotpink;
+      width: 15em;
+      height: 15em;
+      margin: 1.5em;
+   }
+   
+   #verborgen{
+       display: none;
+   }
+   
+   .mole img{
+      width: 15em;
+      height: 15em;
+      z-index: 2;
+   }
+
+   .hole .mole{
+      margin: 0;
+   }
+      
+   </style>
+</head>
+<body>
+   <header>
+      <div id="score"></div>
+   </header>
+   <div id="container">
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div class="hole"></div>
+     <div id="verborgen">
+         <div class="mole" onclick="geklikt(this)"><img src="./img/Mole.jpg" alt="mole"><div>
+     </div>
+   </div>
+
+   <script>
+      var score = 0;
+      var container = document.getElementById("container")
+      var opties = document.getElementsByClassName("hole");
+    
+      function scoremaker() {
+        document.getElementById("score").innerHTML = `Score: ${this.score}`;
+      }
+     
+      function geklikt(element) {
+         this.score++
+         scoremaker();
+         element.style.display = "none"
+         element.outerHTML = opties[0].outerHTML
+         molSpawnen();
+      }
+
+      function molSpawnen(){
+         let keus = Math.floor(Math.random() * opties.length);
+         opties[keus].outerHTML = container.lastElementChild.children[0].outerHTML;
+         console.log(opties, keus)
+      }
+
+      function creerSpel(){
+         var spel_begin = setInterval(molSpawnen, 1000);
+         setTimeout(() => {
+            clearInterval(spel_begin);
+            var spel_midden = setInterval(molSpawnen, 700);
+            setTimeout(() => {
+               clearInterval(spel_midden);
+               var spel_einde = setInterval(molSpawnen, 400);
+               setTimeout(() => {
+                  clearInterval(spel_einde);
+               }, 6000)
+            }, 4000)
+         }, 2000)
+      }
+
+
+      window.addEventListener("load", () => scoremaker(), molSpawnen());
+      // creerSpel();
+   </script>   
+</body>
+</html>
