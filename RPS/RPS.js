@@ -54,7 +54,6 @@ function eindeRonde() {
 }
 
 function vergelijk(getal_speler) {
-   array.style.display = "none";
    var keuze = ["schaar", "steen", "papier"];
    var getal_computer = Math.floor(Math.random() * keuze.length);
    var keuze_speler = keuze[getal_speler];
