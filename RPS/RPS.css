@@ -1,28 +1,11 @@
-*{
+* {
    padding: 0;
    margin: 0;
    /* box-sizing: border-box; */
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
-#array{
-   width: fit-content;
-   margin: 0 auto;
-   /* display: flex; */
-   display: none;
-   flex-direction: column;
-   margin-bottom: 20px;
-}
-#array p{
-   text-align: center;
-}
-#buttons{
-   display: flex;
-   align-self: center;
-}
-
-/* Silke CSS */
-button{
+button {
    background-color: forestgreen;
    color: white;
    border-radius: 1rem;
@@ -31,10 +14,12 @@ button{
    border: 0rem;
    margin: 10px 5px;
 }
-button:hover{
+
+button:hover {
    background-color: green;
 }
-input{
+
+input {
    width: 100px;
    padding: 0.2rem 0.5rem;
    border-radius: 1rem;
@@ -42,8 +27,7 @@ input{
    margin-bottom: 0px;
 }
 
-/* Sander CSS */
-#RPS{
+#RPS {
    width: fit-content;
    margin: 0 auto;
    display: flex;
@@ -53,40 +37,40 @@ input{
    background-color: yellowgreen;
 }
 
-#score_HTML{
+#score_HTML {
    width: fit-content;
    display: flex;
    align-self: center;
    align-items: center;
 }
 
-#RPS h2{
+#RPS h2 {
    align-self: center;
 }
 
-#einde div{
+#einde div {
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
-.score img{
+.score img {
    width: 50px;
    margin: 5px 20px;
    border: 2px solid forestgreen;
    border-radius: 50%;
 }
 
-.fotos img{
+.fotos img {
    margin-top: 20px;
    width: 150px;
    border: 2px solid forestgreen;
    border-radius: 50%;
 }
 
-.einde{
+.einde {
    color: yellowgreen;
-   margin-top: 20px;   
+   margin-top: 20px;
    width: 350px;
    height: 400px;
    display: flex;
@@ -94,14 +78,14 @@ input{
    /* background-color: hotpink; */
 }
 
-.einde img{
+.einde img {
    margin-top: 20px;
    width: auto;
    height: 250px;
 }
 
-.einde button{
+.einde button {
    background-color: yellowgreen;
    border-radius: 50%;
-   padding:5px ;
+   padding: 5px;
 }

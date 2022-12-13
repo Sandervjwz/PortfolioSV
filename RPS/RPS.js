@@ -1,53 +1,3 @@
-//array
-var arr = ["wouter", "heeft", "graag"];
-
-var array = document.getElementById("array");
-var msg = document.getElementById("msg");
-var vooraanPlus = document.getElementById("vooraanPlus");
-var vooraanMin = document.getElementById("vooraanMin");
-var achteraanPlus = document.getElementById("achteraanPlus");
-var achteraanMin = document.getElementById("achteraanMin");
-var reverse = document.getElementById("reverse");
-var alfabetisch = document.getElementById("alfabetisch");
-
-function inner(sort) {
-   msg.innerHTML = `<p>De array is: ${arr.join(", ")}</p><p>Lengte Array: ${arr.length}</p>`
-   if (sort === true) {
-      msg.innerHTML = `<p>De array is: ${arr.sort().join(", ")}</p><p>Lengte Array: ${arr.length}</p>`
-   }
-}
-
-function getInput() {
-   var input = document.getElementById("voegtoe").value;
-   return input.toLowerCase();
-}
-
-window.addEventListener("load", () => inner());
-vooraanPlus.addEventListener("click", function () {
-   arr.unshift(getInput());
-   inner();
-})
-vooraanMin.addEventListener("click", function () {
-   arr.shift();
-   inner();
-})
-achteraanPlus.addEventListener("click", function () {
-   arr.push(getInput());
-   inner();
-})
-achteraanMin.addEventListener("click", function () {
-   arr.pop();
-   inner();
-})
-reverse.addEventListener("click", function () {
-   arr.reverse();
-   inner();
-})
-alfabetisch.addEventListener("click", function () {
-   inner(true);
-})
-
-//schaar steen papier
 var schaar = document.getElementById("schaar");
 var steen = document.getElementById("steen");
 var papier = document.getElementById("papier");
@@ -92,12 +42,12 @@ function eindeRonde() {
    else {
       if (score_computer > score_speler) {
          score();
-         einde.innerHTML = `<div class="einde"><h3>GAME OVER - Computer wint</h3><img src=./img/sad.png alt=sad></img><br><button onClick=history.go(0);>opnieuw</button></div>`
+         einde.innerHTML = `<div class="einde"><h3>GAME OVER - Computer wint</h3><img src=./img/you_lose.png alt=sad></img><br><button onClick=history.go(0);>opnieuw</button></div>`
          einde.style.backgroundColor = "red";
       }
       else {
          score();
-         einde.innerHTML = `<div class="einde"><h3>WIN - Speler wint</h3><img src=./img/happy.png alt=happy></img><br><button onClick=history.go(0);>opnieuw</button></div>`
+         einde.innerHTML = `<div class="einde"><h3>WIN - Speler wint</h3><img src=./img/you_win.jpg alt=happy></img><br><button onClick=history.go(0);>opnieuw</button></div>`
          einde.style.backgroundColor = "green";
       }
    }

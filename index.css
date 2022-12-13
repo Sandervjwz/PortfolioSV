@@ -5,6 +5,35 @@
    font-family: 'Times New Roman', Times, serif;
 }
 
+:root {
+   --primary: #52A8F2;
+   --secondary: #A68568;
+   --tertairy: #593F39;
+   --accent: #C4D0F2;
+   --last: #0D0D0D;
+}
+
+header,
+footer {
+   background-color: var(--tertairy);
+   color: var(--accent);
+   text-align: center;
+   font-size: 1.5em;
+}
+
+header a {
+   color: var(--accent);
+   text-decoration-line: none;
+}
+
+main {
+   background-color: var(--primary);
+   color: var(--last);
+   text-align: center;
+   font-size: large;
+   padding: 0 10%;
+}
+
 h1 {
-   color: hotpink;
+   padding-bottom: 1em;
 }
