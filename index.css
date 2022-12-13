@@ -37,3 +37,16 @@ main {
 h1 {
    padding-bottom: 1em;
 }
+
+h2 {
+   padding-bottom: 0.5em;
+}
+
+.project {
+   display: flex;
+   justify-content: center;
+}
+
+.project img {
+   height: 300px;
+}
