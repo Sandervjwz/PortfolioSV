@@ -80,8 +80,8 @@ input {
 
 .einde img {
    margin-top: 20px;
-   width: auto;
-   height: 250px;
+   width: 250px;
+   height: auto;
 }
 
 .einde button {

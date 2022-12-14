@@ -16,7 +16,12 @@
       cursor: url(http://www.rw-designer.com/cursor-extern.php?id=116484), auto;
    }
 
-   #score{
+   header {
+      display: flex;
+      justify-content: center;
+   }
+
+   #score, #timer{
       padding: 15px;
       text-align: center;
       font-size: 25px;
@@ -38,7 +43,7 @@
    }
    
    #verborgen{
-       display: none;
+      display: none;
    }
    
    .mole img{
@@ -50,12 +55,23 @@
    .hole .mole{
       margin: 0;
    }
+
+   .einde {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .einde img {
+      width: 200px;
+   }
       
    </style>
 </head>
 <body>
    <header>
       <div id="score"></div>
+      <div id="timer"></div>
    </header>
    <div id="container">
      <div class="hole"></div>
@@ -74,9 +90,22 @@
 
    <script>
       var score = 0;
+      var timer = 60;
       var container = document.getElementById("container")
       var opties = document.getElementsByClassName("hole");
     
+      function startTimer() {
+         document.getElementById("timer").innerHTML = `Tijd: ${this.timer}`;
+         start_timer = setInterval(() => {
+            this.timer --;
+            document.getElementById("timer").innerHTML = `Tijd: ${this.timer}`;
+         }, 1000)         
+         setTimeout(() => {
+            clearInterval(start_timer);
+            container.innerHTML = `<div class="einde"><img src=./img/game_over.jpg alt=happy></img><br><button onClick=history.go(0);>opnieuw</button></div>`
+         }, this.timer * 1000)
+      }
+
       function scoremaker() {
         document.getElementById("score").innerHTML = `Score: ${this.score}`;
       }
@@ -89,29 +118,29 @@
          molSpawnen();
       }
 
-      function molSpawnen(){
+      function molSpawnen(test){
          let keus = Math.floor(Math.random() * opties.length);
          opties[keus].outerHTML = container.lastElementChild.children[0].outerHTML;
-         console.log(opties, keus)
+         console.log(test, keus)
       }
 
-      function creerSpel(){
-         var spel_begin = setInterval(molSpawnen, 1000);
-         setTimeout(() => {
-            clearInterval(spel_begin);
-            var spel_midden = setInterval(molSpawnen, 700);
-            setTimeout(() => {
-               clearInterval(spel_midden);
-               var spel_einde = setInterval(molSpawnen, 400);
-               setTimeout(() => {
-                  clearInterval(spel_einde);
-               }, 6000)
-            }, 4000)
-         }, 2000)
-      }
+      // function creerSpel(){
+      //    var spel_begin = setInterval(molSpawnen(1), 1000);
+      //    setTimeout(() => {
+      //       clearInterval(spel_begin);
+      //       var spel_midden = setInterval(molSpawnen(2), 700);
+      //       setTimeout(() => {
+      //          clearInterval(spel_midden);
+      //          var spel_einde = setInterval(molSpawnen(3), 400);
+      //          setTimeout(() => {
+      //             clearInterval(spel_einde);
+      //          }, 6000)
+      //       }, 4000)
+      //    }, 2000)
+      // }
 
 
-      window.addEventListener("load", () => scoremaker(), molSpawnen());
+      window.addEventListener("load", () => startTimer(), scoremaker(), molSpawnen());
       // creerSpel();
    </script>   
 </body>
